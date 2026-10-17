@@ -14,10 +14,19 @@ function vm_ab_valid(?string $value): ?string
     return ($value === 'A' || $value === 'B') ? $value : null;
 }
 
-$path = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?: '/';
-if ($path === '/landing' || preg_match('#/landing/index\.php$#', $path) === 1) {
+$path = rawurldecode(parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?: '/');
+$docRoot = rtrim(str_replace('\\', '/', (string) ($_SERVER['DOCUMENT_ROOT'] ?? '')), '/');
+if ($docRoot !== '' && str_starts_with($path, $docRoot)) {
+    $path = substr($path, strlen($docRoot)) ?: '/';
+    if ($path === '' || $path[0] !== '/') {
+        $path = '/' . $path;
+    }
+}
+
+$needsSlash = (bool) preg_match('#(^|/)landing$#', $path) || (bool) preg_match('#(^|/)landing/index\.php$#', $path);
+if ($needsSlash) {
     $qs = $_SERVER['QUERY_STRING'] ?? '';
-    header('Location: /landing/' . ($qs !== '' ? '?' . $qs : ''), true, 301);
+    header('Location: /landing/' . ($qs !== '' ? '?' . $qs : ''), true, 302);
     exit;
 }
 
