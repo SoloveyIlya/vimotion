@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="ViMotion">
+  <rect width="32" height="32" rx="7" fill="#111111"/>
+  <g fill="#c8102e">
+    <path d="M4.4 7.2h6.1l3.2 12.4 2.8-12.4h5.8L16.6 26.4h-6.2z"/>
+    <rect x="22.1" y="10.6" width="5.1" height="15.8" rx=".5"/>
+    <circle cx="26.4" cy="7.1" r="2.35"/>
+  </g>
+</svg>

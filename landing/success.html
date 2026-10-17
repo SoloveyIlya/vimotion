@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Открываю урок · ViMotion</title>
+  <link rel="icon" href="../favicon.ico" sizes="any" />
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="../favicon.png" type="image/png" sizes="180x180" />
+  <script src="../assets/js/ab-test.js"></script>
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1638653997627566');
+  var vmPixel = typeof window.vmAbPixelData === 'function' ? window.vmAbPixelData() : { ab_variant: window.vmAbVariant || 'A', content_name: 'landing_' + (window.vmAbVariant || 'A') };
+  fbq('track', 'PageView', vmPixel);
+  (function () {
+    var fireLead = false;
+    try {
+      fireLead = sessionStorage.getItem("vm_lead_pending") === "1";
+      if (fireLead) sessionStorage.removeItem("vm_lead_pending");
+    } catch (e) {}
+    if (fireLead) fbq('track', 'Lead', vmPixel);
+  })();
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1638653997627566&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+  <link rel="preconnect" href="https://api.fontshare.com" />
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream: #efe6de;
+      --cola: #9a0002;
+      --ink: #111111;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100dvh;
+      display: grid;
+      place-items: center;
+      padding: 32px 20px;
+      background: var(--cream);
+      color: var(--ink);
+      font-family: Satoshi, "Helvetica Neue", Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    main {
+      width: min(420px, 100%);
+      text-align: center;
+    }
+
+    h1 {
+      font-size: clamp(32px, 6vw, 44px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+
+    p {
+      margin-top: 14px;
+      font-size: 16px;
+      line-height: 1.45;
+      color: rgba(17, 17, 17, 0.68);
+    }
+
+    a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 28px;
+      min-height: 56px;
+      padding: 0 22px;
+      border: 1px solid var(--cola);
+      border-radius: 2px;
+      background: var(--cola);
+      color: var(--cream);
+      font: inherit;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Готово</h1>
+    <p>Заявка отправлена. Сейчас откроется Telegram с видеоуроком.</p>
+    <a id="bot-link" href="https://t.me/creatorwayBot">Открыть Telegram</a>
+  </main>
+  <script>
+    (function () {
+      var BOT_URL = "https://t.me/creatorwayBot";
+      var started = Date.now();
+      var left = false;
+
+      function go() {
+        if (left) return;
+        left = true;
+        window.location.replace(BOT_URL);
+      }
+
+      document.getElementById("bot-link").addEventListener("click", function (event) {
+        event.preventDefault();
+        go();
+      });
+
+      function pixelReady() {
+        return window.fbq && typeof window.fbq.callMethod === "function";
+      }
+
+      function tick() {
+        var elapsed = Date.now() - started;
+        if (pixelReady()) {
+          setTimeout(go, 500);
+          return;
+        }
+        if (elapsed >= 2000) {
+          go();
+          return;
+        }
+        setTimeout(tick, 40);
+      }
+
+      tick();
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+DirectoryIndex index.php index.html
+
+RewriteEngine On
+
+# A/B лендинг всегда на /landing/
+RewriteRule ^landing/index\.html$ landing/ [R=301,L,QSA]
+RewriteRule ^landing/a\.html$ landing/?ab_variant=A [R=301,L,QSA]
+RewriteRule ^landing/b\.html$ landing/?ab_variant=B [R=301,L,QSA]
+RewriteRule ^landing$ landing/ [R=301,L,QSA]
+
+# Старые URL → новые папки (относительно каталога сайта, работает и в подпапке)
+RewriteRule ^quiz\.html$ quiz/ [R=301,L]
+RewriteRule ^social\.html$ social/ [R=301,L]
+RewriteRule ^send-quiz\.php$ api/send-quiz.php [R=301,L]
+RewriteRule ^track\.php$ api/track.php [R=301,L]
+RewriteRule ^stats\.php$ api/stats.php [R=301,L]
+
+<Files ".env">
+  Require all denied
+</Files>
+
+<Files "events.jsonl">
+  Require all denied
+</Files>

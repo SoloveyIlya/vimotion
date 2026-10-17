@@ -1,0 +1,1912 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="../assets/js/ab-test.js"></script>
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1638653997627566');
+  fbq('track', 'PageView', typeof window.vmAbPixelData === 'function' ? window.vmAbPixelData() : { ab_variant: window.vmAbVariant || 'A', content_name: 'landing_' + (window.vmAbVariant || 'A') });
+  fbq('trackCustom', 'ABLanding', typeof window.vmAbPixelData === 'function' ? window.vmAbPixelData() : { ab_variant: window.vmAbVariant || 'A', content_name: 'landing_' + (window.vmAbVariant || 'A') });
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1638653997627566&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+  <title>Бесплатный видеоурок · ViMotion</title>
+  <meta name="description" content="Пошаговый план, как с нуля стать контент-креатором и начать зарабатывать на контенте." />
+  <link rel="icon" href="../favicon.ico" sizes="any" />
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="../favicon.png" type="image/png" sizes="180x180" />
+  <link rel="apple-touch-icon" href="../favicon.png" />
+  <link rel="preconnect" href="https://api.fontshare.com" />
+  <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;700&family=Manrope:wght@700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream: #efe6de;
+      --cola: #9a0002;
+      --ink: #111111;
+      --soft: rgba(17, 17, 17, 0.68);
+      --line: rgba(17, 17, 17, 0.12);
+      --grotesk: Satoshi, "Helvetica Neue", Arial, sans-serif;
+      --display: "Archivo Narrow", Impact, sans-serif;
+      --about: Manrope, Satoshi, "Helvetica Neue", Arial, sans-serif;
+      --ease: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--grotesk);
+      color: var(--ink);
+      background: var(--cream);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.08;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    .page { position: relative; z-index: 1; }
+
+    img { display: block; max-width: 100%; height: auto; }
+
+    a { color: inherit; text-decoration: none; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      width: 100%;
+      min-height: 64px;
+      padding: 0 22px;
+      border: 1px solid var(--cola);
+      border-radius: 2px;
+      background: var(--cola);
+      color: var(--cream);
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 180ms ease, color 180ms ease;
+    }
+
+    .btn span {
+      font-size: 18px;
+      line-height: 1;
+      transition: transform 180ms ease;
+    }
+
+    .btn:hover {
+      background: transparent;
+      color: var(--cola);
+    }
+
+    .btn:hover span { transform: translate(3px, -3px); }
+
+    .btn:focus-visible {
+      outline: 3px solid var(--cola);
+      outline-offset: 4px;
+    }
+
+    /* ========== HERO ========== */
+    .hero {
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      display: grid;
+      grid-template-rows: auto auto;
+      min-height: 100svh;
+      min-height: 100dvh;
+      --hero-blur: 0px;
+      --hero-dim: 0;
+      isolation: isolate;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 4;
+      pointer-events: none;
+      background: rgba(17, 17, 17, calc(var(--hero-dim) * 0.42));
+    }
+
+    .hero__photo {
+      position: relative;
+      order: -1;
+      z-index: 0;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      background: #1a1a1a;
+      filter: blur(var(--hero-blur));
+      will-change: filter;
+    }
+
+    .hero__photo img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 12%;
+    }
+
+    .hero__copy {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      flex: 1 1 auto;
+      gap: 12px;
+      margin-top: 0;
+      padding: 18px max(16px, env(safe-area-inset-right)) calc(18px + env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
+      text-align: center;
+      background: var(--cream);
+      border-radius: 0;
+      filter: blur(var(--hero-blur));
+      will-change: filter;
+    }
+
+    .hero__lead {
+      max-width: 28em;
+      font-size: clamp(12px, 3.2vw, 14px);
+      font-weight: 600;
+      line-height: 1.35;
+      color: var(--soft);
+    }
+
+    .hero__title {
+      font-family: var(--display);
+      font-size: clamp(32px, 9.5vw, 48px);
+      font-weight: 700;
+      line-height: 0.9;
+      letter-spacing: -0.04em;
+      text-transform: uppercase;
+    }
+
+    .hero__title .line {
+      display: block;
+    }
+
+    .hero__title em {
+      font-style: normal;
+      color: var(--cola);
+    }
+
+    .hero__copy .btn {
+      margin-top: 2px;
+      max-width: 420px;
+      min-height: 52px;
+    }
+
+    /* ========== ABOUT ========== */
+    .about {
+      position: relative;
+      z-index: 2;
+      padding: 0;
+      background: var(--cola);
+      color: var(--cream);
+    }
+
+    .about__panel {
+      overflow: hidden;
+    }
+
+    .about__photo {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      max-height: 62svh;
+      object-fit: cover;
+      object-position: center 18%;
+    }
+
+    .about__copy {
+      padding: 28px max(16px, env(safe-area-inset-right)) calc(36px + env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .about__eyebrow {
+      margin: 0 0 10px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: color-mix(in srgb, var(--cream) 72%, white);
+    }
+
+    .about__name {
+      margin: 0 0 20px;
+      font-family: var(--display);
+      font-size: clamp(36px, 10vw, 48px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 0.95;
+      text-transform: uppercase;
+      color: var(--cream);
+    }
+
+    .about__list {
+      list-style: none;
+      display: grid;
+      gap: 8px;
+      text-align: left;
+    }
+
+    .about__item {
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      gap: 12px;
+      align-items: center;
+      padding: 10px 12px 10px 10px;
+      border-radius: 14px;
+      background: var(--cream);
+      color: var(--ink);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    .about__icon {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: var(--cola);
+      color: var(--cream);
+      flex-shrink: 0;
+    }
+
+    .about__icon svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .about__icon-dollar {
+      width: 24px;
+      height: 24px;
+    }
+
+    .about__text {
+      font-family: var(--about);
+      font-size: clamp(12px, 3.2vw, 14px);
+      font-weight: 700;
+      line-height: 1.22;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+    }
+
+    .about__text .line {
+      display: block;
+    }
+
+    .about__text .count,
+    .about__text .about__unit {
+      font-family: Manrope, sans-serif;
+      font-size: inherit;
+      font-weight: 800;
+      letter-spacing: inherit;
+      color: var(--cola);
+    }
+
+    .about__text .about__unit--brand {
+      font-weight: 900;
+      -webkit-text-stroke: 0.45px currentColor;
+      paint-order: stroke fill;
+    }
+
+    .about__text .count {
+      display: inline-block;
+      font-variant-numeric: tabular-nums;
+      min-width: 0.6em;
+    }
+
+    /* ========== LESSON ========== */
+    .lesson {
+      position: relative;
+      z-index: 3;
+      padding: 40px max(16px, env(safe-area-inset-right)) calc(56px + env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
+      background: var(--cream);
+    }
+
+    .lesson__layout {
+      width: min(1120px, 100%);
+      margin: 0 auto;
+      display: grid;
+      gap: 28px;
+    }
+
+    .lesson__side {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      text-align: center;
+    }
+
+    .lesson__title {
+      margin: 0;
+      font-family: var(--display);
+      font-size: clamp(34px, 10vw, 48px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 0.95;
+      text-transform: uppercase;
+    }
+
+    .lesson__rule {
+      width: 56px;
+      height: 4px;
+      background: var(--cola);
+    }
+
+    .lesson__side .btn,
+    .lesson__cta {
+      width: 100%;
+      max-width: 360px;
+      min-height: 56px;
+    }
+
+    .lesson__cta--side {
+      display: none;
+    }
+
+    .lesson__cta--after {
+      display: inline-flex;
+      justify-self: center;
+      width: 100%;
+    }
+
+    .lesson__cards {
+      list-style: none;
+      display: grid;
+      gap: 16px;
+      margin: 0;
+      padding: 0;
+      perspective: 1400px;
+    }
+
+    .lesson__card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 2px;
+      border: 1px solid rgba(17, 17, 17, 0.10);
+      background: #fef7ed;
+      box-shadow: 0 12px 32px rgba(17, 17, 17, 0.07);
+      transform-style: preserve-3d;
+      container-type: inline-size;
+      transition:
+        transform 280ms var(--ease),
+        box-shadow 280ms ease,
+        border-color 220ms ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .lesson__body {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      padding: 6% 5.5% 5.5%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .lesson__visual {
+      position: relative;
+      flex: 1 1 auto;
+      min-height: 0;
+    }
+
+    .lesson__num {
+      position: relative;
+      z-index: 1;
+      display: inline-block;
+      margin-top: 0.1em;
+      margin-left: 0.06em;
+      font-family: var(--display);
+      font-size: clamp(44px, 13.5cqi, 80px);
+      font-weight: 700;
+      color: var(--cola);
+      line-height: 0.85;
+      letter-spacing: -0.04em;
+    }
+
+    .lesson__num::before {
+      content: "";
+      position: absolute;
+      width: 3em;
+      height: 3em;
+      left: -1.35em;
+      top: -1.45em;
+      border-radius: 50%;
+      background: #fce7e1;
+      z-index: -1;
+    }
+
+    .lesson__art {
+      position: absolute;
+      right: -2%;
+      top: -8%;
+      width: min(52%, 300px);
+      height: 118%;
+      object-fit: contain;
+      object-position: right center;
+      pointer-events: none;
+    }
+
+    .lesson__art--wide {
+      width: min(60%, 340px);
+      right: -4%;
+    }
+
+    .lesson__art--nout {
+      width: min(70%, 380px);
+      height: 140%;
+      top: -14%;
+      right: 0;
+    }
+
+    .lesson__art--capcut {
+      width: min(64%, 360px);
+      height: 132%;
+      top: -12%;
+      right: -2%;
+    }
+
+    .lesson__art--skills {
+      width: min(72%, 400px);
+      height: 138%;
+      top: -14%;
+      right: -4%;
+    }
+
+    .lesson__art--money {
+      width: min(66%, 360px);
+      height: 140%;
+      top: -16%;
+      right: -2%;
+    }
+
+    .lesson__heading {
+      position: relative;
+      z-index: 1;
+      max-width: 94%;
+      margin: 0;
+      font-family: var(--display);
+      font-size: clamp(16px, 5.2cqi, 28px);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+      text-transform: uppercase;
+      overflow-wrap: break-word;
+    }
+
+    .lesson__heading span {
+      display: block;
+    }
+
+    .lesson__heading::after {
+      content: "";
+      display: block;
+      width: 44px;
+      height: 3px;
+      margin-top: 0.4em;
+      background: var(--cola);
+    }
+
+    .lesson__card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(
+        135deg,
+        color-mix(in srgb, var(--cream) 0%, transparent) 0%,
+        color-mix(in srgb, var(--cola) 0%, transparent) 100%
+      );
+      transition: background 280ms ease;
+    }
+
+    .lesson__card img {
+      display: block;
+    }
+
+    .lesson__card:active {
+      border-color: var(--cola);
+      transform: translateY(-2px);
+      box-shadow:
+        0 14px 28px rgba(17, 17, 17, 0.12),
+        0 0 0 1px color-mix(in srgb, var(--cola) 35%, transparent);
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .lesson__card:hover {
+        border-color: var(--cola);
+        transform: perspective(1100px) rotateX(5deg) rotateY(-7deg) translateY(-6px);
+        box-shadow:
+          -10px 22px 40px rgba(17, 17, 17, 0.14),
+          0 0 0 1px color-mix(in srgb, var(--cola) 40%, transparent);
+      }
+
+      .lesson__card:hover::after {
+        background: linear-gradient(
+          135deg,
+          color-mix(in srgb, var(--cream) 18%, transparent) 0%,
+          color-mix(in srgb, var(--cola) 10%, transparent) 100%
+        );
+      }
+
+      .lesson__card:active {
+        transform: perspective(1100px) rotateX(5deg) rotateY(-7deg) translateY(-6px);
+      }
+    }
+
+    /* ========== FOOTER ========== */
+    .site-footer {
+      position: relative;
+      z-index: 4;
+      overflow: hidden;
+      background: var(--cream);
+      color: var(--ink);
+      padding: 72px 20px calc(72px + env(safe-area-inset-bottom));
+      min-height: 260px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .footer-wordmark {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      height: clamp(120px, 36vw, 220px);
+      width: auto;
+      max-width: min(1400px, 140%);
+      object-fit: contain;
+      opacity: 0.14;
+      pointer-events: none;
+      user-select: none;
+      z-index: 0;
+    }
+
+    .footer-stack {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      text-align: center;
+    }
+
+    .footer-stack a,
+    .footer-stack p {
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1.3;
+      text-decoration: none;
+      color: var(--ink);
+    }
+
+    .footer-stack a:hover {
+      color: var(--cola);
+    }
+
+    .footer-stack a {
+      cursor: pointer;
+    }
+
+    .footer-brand {
+      margin-top: 6px;
+      font-style: italic;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-size: 13px !important;
+    }
+
+    .footer-legal {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      max-width: 520px;
+      margin-top: 4px;
+    }
+
+    .footer-legal p {
+      margin: 0;
+      font-size: 12px !important;
+      font-weight: 500 !important;
+      line-height: 1.45 !important;
+      color: rgba(17, 17, 17, 0.72);
+    }
+
+    .footer-legal__name {
+      font-size: 15px !important;
+      font-weight: 700 !important;
+      color: var(--ink) !important;
+    }
+
+    .footer-legal a {
+      color: inherit;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      font-size: inherit;
+      font-weight: inherit;
+    }
+
+    .footer-legal a:hover {
+      color: var(--cola);
+    }
+
+    /* ========== MODALS ========== */
+    .modal-root {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: grid;
+      place-items: center;
+      padding: max(16px, env(safe-area-inset-top)) 16px max(16px, env(safe-area-inset-bottom));
+    }
+
+    .modal-root[hidden] { display: none; }
+
+    .modal-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(17, 17, 17, 0.55);
+      backdrop-filter: blur(4px);
+    }
+
+    .modal {
+      position: relative;
+      z-index: 1;
+      width: min(640px, 100%);
+      max-height: min(84dvh, 720px);
+      overflow: auto;
+      padding: 28px 20px 22px;
+      border: 1px solid rgba(17, 17, 17, 0.12);
+      border-radius: 2px;
+      background: var(--cream);
+      color: var(--ink);
+      box-shadow: 0 28px 60px rgba(0, 0, 0, 0.28);
+      outline: none;
+    }
+
+    .modal-root.is-open .modal-backdrop {
+      animation: fade-in 280ms ease both;
+    }
+
+    .modal-root.is-open .modal {
+      animation: modal-in 360ms cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    @keyframes fade-in {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes modal-in {
+      from {
+        opacity: 0;
+        transform: scale(0.96) translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 12px;
+      right: 14px;
+      width: 36px;
+      height: 36px;
+      border: 0;
+      background: transparent;
+      color: var(--ink);
+      font-size: 28px;
+      line-height: 1;
+      cursor: pointer;
+      opacity: 0.55;
+    }
+
+    .modal-close:hover { opacity: 1; color: var(--cola); }
+
+    .modal-title {
+      font-family: var(--display);
+      font-size: clamp(28px, 5vw, 36px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 0.95;
+      margin-bottom: 18px;
+      padding-right: 28px;
+    }
+
+    .modal-body .legal {
+      display: grid;
+      gap: 12px;
+      font-size: 14px;
+      line-height: 1.55;
+      color: var(--soft);
+    }
+
+    .modal-body .legal strong { color: var(--ink); font-weight: 700; }
+
+    .modal-body .legal-note {
+      margin-top: 8px;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--cola);
+    }
+
+    /* ========== LEAD MODAL ========== */
+    .lead-modal .modal {
+      width: min(440px, 100%);
+      max-height: none;
+      overflow: visible;
+      padding: 32px 22px 24px;
+    }
+
+    .lead-modal .modal-title {
+      margin-bottom: 8px;
+    }
+
+    .lead-modal__lead {
+      margin-bottom: 22px;
+      font-size: 15px;
+      line-height: 1.45;
+      color: var(--soft);
+    }
+
+    .lead-form {
+      display: grid;
+      gap: 14px;
+    }
+
+    .lead-form .field {
+      display: grid;
+      gap: 8px;
+    }
+
+    .lead-form .field label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--soft);
+    }
+
+    .lead-form .field input {
+      width: 100%;
+      min-height: 54px;
+      border: 1px solid var(--line);
+      border-radius: 2px;
+      background: rgba(255, 255, 255, 0.55);
+      color: var(--ink);
+      padding: 0 16px;
+      font: inherit;
+      font-size: 16px;
+      transition: border-color 180ms ease, background 180ms ease;
+    }
+
+    .lead-form .field input::placeholder {
+      color: rgba(17, 17, 17, 0.38);
+    }
+
+    .lead-form .field input:hover {
+      border-color: rgba(154, 0, 2, 0.4);
+    }
+
+    .lead-form .field input:focus {
+      outline: none;
+      border-color: var(--cola);
+      background: #fffaf5;
+    }
+
+    .lead-form .field.is-invalid input {
+      border-color: var(--cola);
+      background: rgba(154, 0, 2, 0.07);
+    }
+
+    .lead-form .field-error {
+      font-size: 13px;
+      line-height: 1.35;
+      color: var(--cola);
+    }
+
+    .lead-form .field-error[hidden] {
+      display: none;
+    }
+
+    .lead-form .btn {
+      margin-top: 4px;
+    }
+
+    .lead-form .btn[disabled] {
+      opacity: 0.65;
+      cursor: wait;
+      pointer-events: none;
+    }
+
+    .lead-form__hint {
+      min-height: 1.2em;
+      font-size: 13px;
+      line-height: 1.35;
+      color: var(--soft);
+      text-align: center;
+    }
+
+    .lead-form__hint.is-error {
+      color: var(--cola);
+    }
+
+    .lead-form__hint[hidden] {
+      display: none;
+    }
+
+    .lead-form__note {
+      font-size: 12px;
+      line-height: 1.4;
+      color: var(--soft);
+      text-align: center;
+    }
+
+    .lead-form__note a {
+      color: var(--cola);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    /* ========== MOTION ========== */
+    @keyframes up {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero__copy { animation: up 700ms var(--ease) 80ms both; }
+    .hero__photo { animation: up 800ms var(--ease) both; }
+
+    @media (prefers-reduced-motion: no-preference) {
+      html.js .reveal:not(.in) {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+      html.js .reveal.in {
+        animation: up 650ms var(--ease) both;
+        animation-delay: var(--d, 0ms);
+      }
+      html.js .footer-wordmark.reveal:not(.in) {
+        opacity: 0;
+        transform: translate(-50%, -50%);
+        animation: none;
+      }
+      html.js .footer-wordmark.reveal.in {
+        opacity: 0.14;
+        transform: translate(-50%, -50%);
+        animation: none;
+        transition: opacity 620ms var(--ease);
+      }
+    }
+
+    /* ========== DESKTOP ========== */
+    @media (min-width: 960px) {
+      .hero {
+        position: sticky;
+        top: 0;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        grid-template-rows: none;
+        min-height: 100svh;
+        min-height: 100dvh;
+        height: auto;
+      }
+
+      .hero__photo {
+        order: 2;
+        width: auto;
+        aspect-ratio: auto;
+        min-height: 100svh;
+        min-height: 100dvh;
+        max-height: none;
+        height: 100svh;
+        height: 100dvh;
+        filter: blur(var(--hero-blur));
+        will-change: filter;
+      }
+
+      .hero__photo img {
+        min-height: 100%;
+        object-position: center center;
+      }
+
+      .hero__copy {
+        order: 1;
+        z-index: auto;
+        align-items: flex-start;
+        text-align: left;
+        gap: 28px;
+        margin-top: 0;
+        border-radius: 0;
+        padding: clamp(48px, 8vh, 80px) clamp(40px, 5vw, 72px);
+        filter: blur(var(--hero-blur));
+        will-change: filter;
+      }
+
+      .hero__lead {
+        font-size: 18px;
+        max-width: 32em;
+      }
+
+      .hero__title {
+        font-size: clamp(64px, 5.8vw, 92px);
+      }
+
+      .hero__title .line {
+        white-space: nowrap;
+      }
+
+      .hero__copy .btn {
+        width: auto;
+        min-width: 300px;
+        min-height: 64px;
+      }
+
+      .about {
+        padding: 0;
+      }
+
+      .about__panel {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0;
+        width: 100%;
+        min-height: 100svh;
+        min-height: 100dvh;
+      }
+
+      .about__photo {
+        height: 100%;
+        min-height: 100%;
+        max-height: none;
+        aspect-ratio: auto;
+      }
+
+      .about__copy {
+        padding: 48px clamp(28px, 4vw, 56px);
+        text-align: left;
+      }
+
+      .about__name {
+        margin-bottom: 28px;
+        font-size: clamp(52px, 4.6vw, 68px);
+      }
+
+      .about__eyebrow {
+        font-size: 16px;
+      }
+
+      .about__list {
+        gap: 10px;
+      }
+
+      .about__item {
+        grid-template-columns: 52px 1fr;
+        gap: 14px;
+        padding: 14px 16px 14px 14px;
+        border-radius: 16px;
+      }
+
+      .about__icon {
+        width: 52px;
+        height: 52px;
+      }
+
+      .about__icon svg {
+        width: 24px;
+        height: 24px;
+      }
+
+      .about__icon-dollar {
+        width: 26px;
+        height: 26px;
+      }
+
+      .about__text {
+        font-size: 16px;
+      }
+
+      .lesson {
+        padding: 72px 40px 110px;
+      }
+
+      .lesson__layout {
+        grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+        gap: clamp(36px, 5vw, 64px);
+        align-items: start;
+      }
+
+      .lesson__side {
+        position: sticky;
+        top: clamp(32px, 10vh, 100px);
+        align-items: flex-start;
+        text-align: left;
+        gap: 24px;
+      }
+
+      .lesson__title {
+        font-size: clamp(48px, 4.2vw, 64px);
+      }
+
+      .lesson__rule {
+        width: 64px;
+      }
+
+      .lesson__side .btn,
+      .lesson__cta--side {
+        display: inline-flex;
+        width: auto;
+        min-width: 280px;
+        max-width: none;
+        min-height: 64px;
+      }
+
+      .lesson__cta--after {
+        display: none;
+      }
+
+      .lesson__cards {
+        gap: 40px;
+      }
+
+      .lesson__card {
+        border-radius: 2px;
+      }
+
+      .site-footer {
+        padding: 110px 20px 88px;
+        min-height: 320px;
+      }
+
+      .footer-wordmark {
+        height: clamp(180px, 42vw, 320px);
+      }
+
+      .modal {
+        padding: 36px 32px 28px;
+        max-height: min(80dvh, 720px);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .hero {
+        --hero-blur: 0px !important;
+        --hero-dim: 0 !important;
+      }
+      .hero__copy,
+      .hero__photo {
+        filter: none !important;
+      }
+      .hero::after { opacity: 0; }
+      .footer-wordmark {
+        opacity: 0.14 !important;
+        transform: translate(-50%, -50%) !important;
+      }
+      .hero__copy,
+      .hero__photo,
+      .reveal,
+      .reveal.in,
+      .lesson__card {
+        animation: none;
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+      .btn:hover span { transform: none; }
+      .lesson__card:hover {
+        transform: none;
+      }
+      .lesson__card:hover::after {
+        background: transparent;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <main>
+      <!-- 1. Первый экран -->
+      <section class="hero" aria-label="Первый экран">
+        <div class="hero__copy">
+          <p class="hero__lead">
+            Я подготовил для тебя пошаговый план,<br />
+            как с нуля стать контент-креатором<br />
+            и начать зарабатывать на контенте
+          </p>
+          <h1 class="hero__title">
+            <span class="line">И упаковал его</span>
+            <span class="line">в <em>бесплатный</em></span>
+            <span class="line">видеоурок</span>
+          </h1>
+          <button class="btn" type="button" data-lead-open>
+            Забрать видеоурок
+            <span aria-hidden="true">↗</span>
+          </button>
+        </div>
+        <div class="hero__photo">
+          <img
+            src="../assets/img/hero-landing.png"
+            alt="Валентин"
+            width="1200"
+            height="1600"
+            fetchpriority="high"
+          />
+        </div>
+      </section>
+
+      <!-- 2. Блок про Валентина -->
+      <section class="about" aria-label="О Валентине">
+        <div class="about__panel">
+          <img
+            class="about__photo reveal"
+            src="../assets/img/landing-about.jpg"
+            alt="Валентин"
+            width="1080"
+            height="1350"
+            loading="lazy"
+          />
+          <div class="about__copy">
+            <p class="about__eyebrow reveal">Автор и ведущий урока</p>
+            <h2 class="about__name reveal" style="--d: 60ms">Валентин Сушнёв</h2>
+
+            <ul class="about__list">
+              <li class="about__item reveal" style="--d: 100ms">
+                <span class="about__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <rect x="3.4" y="5.4" width="17.2" height="15.2" rx="2.2" stroke="currentColor" stroke-width="1.6" />
+                    <path d="M3.4 9.6h17.2" stroke="currentColor" stroke-width="1.6" />
+                    <path d="M8 3.5v4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+                    <path d="M16 3.5v4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+                    <circle cx="8.2" cy="13.1" r="1.05" fill="currentColor" />
+                    <circle cx="12" cy="13.1" r="1.05" fill="currentColor" />
+                    <circle cx="15.8" cy="13.1" r="1.05" fill="currentColor" />
+                    <circle cx="8.2" cy="16.8" r="1.05" fill="currentColor" />
+                    <circle cx="12" cy="16.8" r="1.05" fill="currentColor" />
+                  </svg>
+                </span>
+                <p class="about__text">
+                  <span class="line">В видеоконтенте</span>
+                  <span class="line">с <span class="count" data-count="2019">0</span> года</span>
+                </p>
+              </li>
+
+              <li class="about__item reveal" style="--d: 180ms">
+                <span class="about__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M12 5.2c4.7 0 8.4 3.4 9.7 6.8-1.3 3.4-5 6.8-9.7 6.8S3.6 15.4 2.3 12C3.6 8.6 7.3 5.2 12 5.2Z" stroke="currentColor" stroke-width="1.6" />
+                    <circle cx="12" cy="12" r="3.1" fill="currentColor" />
+                  </svg>
+                </span>
+                <p class="about__text">
+                  <span class="line">Сделал суммарно <span class="count" data-count="500" data-suffix="+">0</span> <span class="about__unit">МЛН</span></span>
+                  <span class="line">просмотров на видео</span>
+                  <span class="line">себе и клиентам</span>
+                </p>
+              </li>
+
+              <li class="about__item reveal" style="--d: 260ms">
+                <span class="about__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <rect x="2.4" y="6" width="19.2" height="12" rx="3.2" stroke="currentColor" stroke-width="1.6" />
+                    <path d="M10.1 9.1v5.8L15.6 12 10.1 9.1Z" fill="currentColor" />
+                  </svg>
+                </span>
+                <p class="about__text">
+                  <span class="line">Серебряная кнопка</span>
+                  <span class="line"><span class="about__unit about__unit--brand">YouTube</span> в 15 лет</span>
+                </p>
+              </li>
+
+              <li class="about__item reveal" style="--d: 340ms">
+                <span class="about__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <rect x="3.2" y="8.2" width="17.6" height="11.6" rx="2.1" stroke="currentColor" stroke-width="1.6" />
+                    <path d="M8.4 8.2V6.5c0-.9.7-1.6 1.6-1.6h4c.9 0 1.6.7 1.6 1.6v1.7" stroke="currentColor" stroke-width="1.6" />
+                    <path d="M3.2 13.2h17.6" stroke="currentColor" stroke-width="1.6" />
+                    <rect x="10.2" y="11.8" width="3.6" height="2.6" rx="0.7" fill="currentColor" />
+                  </svg>
+                </span>
+                <p class="about__text">
+                  <span class="line">Имеет своё <span class="about__unit">видеоагентство</span></span>
+                  <span class="line">по продвижению бизнесов</span>
+                  <span class="line">и предпринимателей</span>
+                </p>
+              </li>
+
+              <li class="about__item reveal" style="--d: 420ms">
+                <span class="about__icon" aria-hidden="true">
+                  <svg class="about__icon-dollar" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 3.4v17.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                    <path d="M16.2 7.6c-.7-1.6-2.3-2.5-4.3-2.5-2.5 0-4.3 1.4-4.3 3.2 0 4.3 8.6 1.8 8.6 6.1 0 1.9-1.8 3.4-4.5 3.4-2.3 0-3.9-.9-4.7-2.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                  </svg>
+                </span>
+                <p class="about__text">
+                  <span class="line">Ежемесячно зарабатывает</span>
+                  <span class="line"><span class="count" data-count="10000" data-format="dot" data-suffix="$+">0</span> на этом навыке</span>
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. Что в уроке -->
+      <section class="lesson" aria-label="Что в уроке">
+        <div class="lesson__layout">
+          <div class="lesson__side">
+            <h2 class="lesson__title reveal">Что в уроке</h2>
+            <div class="lesson__rule reveal" aria-hidden="true" style="--d: 60ms"></div>
+            <button class="btn lesson__cta lesson__cta--side reveal" type="button" style="--d: 100ms" data-lead-open>
+              Забрать видеоурок
+              <span aria-hidden="true">↗</span>
+            </button>
+          </div>
+
+          <ul class="lesson__cards">
+            <li class="lesson__card reveal" style="--d: 80ms">
+              <article class="lesson__body">
+                <div class="lesson__visual">
+                  <span class="lesson__num" aria-hidden="true">01</span>
+                  <img class="lesson__art lesson__art--nout" src="../assets/img/landing/art-nout.png" alt="" width="1178" height="1236" loading="lazy" />
+                </div>
+                <h3 class="lesson__heading">
+                  <span>С чего начинал я,</span>
+                  <span>и что принесло первый</span>
+                  <span>результат?</span>
+                </h3>
+              </article>
+            </li>
+            <li class="lesson__card reveal" style="--d: 140ms">
+              <article class="lesson__body">
+                <div class="lesson__visual">
+                  <span class="lesson__num" aria-hidden="true">02</span>
+                  <img class="lesson__art lesson__art--capcut" src="../assets/img/landing/art-cup-cut.png" alt="" width="1254" height="1254" loading="lazy" />
+                </div>
+                <h3 class="lesson__heading">
+                  <span>Как начать с нуля,</span>
+                  <span>без опыта и портфолио?</span>
+                </h3>
+              </article>
+            </li>
+            <li class="lesson__card reveal" style="--d: 200ms">
+              <article class="lesson__body">
+                <div class="lesson__visual">
+                  <span class="lesson__num" aria-hidden="true">03</span>
+                  <img class="lesson__art lesson__art--skills" src="../assets/img/landing/art-skills.png" alt="" width="1536" height="1024" loading="lazy" />
+                </div>
+                <h3 class="lesson__heading">
+                  <span>Какие навыки больше всего</span>
+                  <span>ценятся на рынке</span>
+                  <span>прямо сейчас?</span>
+                </h3>
+              </article>
+            </li>
+            <li class="lesson__card reveal" style="--d: 260ms">
+              <article class="lesson__body">
+                <div class="lesson__visual">
+                  <span class="lesson__num" aria-hidden="true">04</span>
+                  <img class="lesson__art lesson__art--money" src="../assets/img/landing/art-money-2.png" alt="" width="1477" height="1065" loading="lazy" />
+                </div>
+                <h3 class="lesson__heading">
+                  <span>Как найти первого клиента</span>
+                  <span>и выйти на доход</span>
+                  <span>без потерь времени?</span>
+                </h3>
+              </article>
+            </li>
+          </ul>
+
+          <button class="btn lesson__cta lesson__cta--after reveal" type="button" style="--d: 240ms" data-lead-open>
+            Забрать видеоурок
+            <span aria-hidden="true">↗</span>
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <img class="footer-wordmark reveal" src="../assets/img/vimotion.png" alt="" aria-hidden="true" />
+      <nav class="footer-stack reveal" style="--d: 120ms" aria-label="Юридическая информация">
+        <a href="#offer" data-modal="offer">Оферта</a>
+        <a href="#privacy" data-modal="privacy">Политика конфиденциальности</a>
+        <div class="footer-legal">
+          <p class="footer-legal__name">ООО «ХАЙТЬЮБ»</p>
+          <p>Юр. адрес: Республика Беларусь, г. Орша, ул. Ивана Флёрова, 2, офис 3</p>
+          <p>Витебская область, 211389</p>
+          <p>Время работы: с 10:00 до 19:00</p>
+          <p>Телефон: <a href="tel:+375255190282">+375255190282</a></p>
+          <p>Электронный адрес: <a href="mailto:Valentinmironoov3000@gmail.com">Valentinmironoov3000@gmail.com</a></p>
+          <p>Свидетельство о регистрации государственного юридического лица выдано Оршанским районным исполнительным комитетом 9 января 2026 года под регистрационным номером 392036312</p>
+          <p><a href="tel:+375216511212">8 (0216) 51-12-12</a></p>
+          <p><a href="mailto:rikorsha@vitobl.by">rikorsha@vitobl.by</a></p>
+        </div>
+        <p class="footer-brand">ViMotion</p>
+      </nav>
+    </footer>
+  </div>
+
+  <div class="modal-root" id="modal-root" hidden>
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" tabindex="-1">
+      <button class="modal-close" type="button" data-close-modal aria-label="Закрыть">×</button>
+      <h2 class="modal-title" id="modal-title"></h2>
+      <div class="modal-body" id="modal-body"></div>
+    </div>
+  </div>
+
+  <div class="modal-root lead-modal" id="lead-modal" hidden>
+    <div class="modal-backdrop" data-lead-close></div>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="lead-modal-title" tabindex="-1">
+      <button class="modal-close" type="button" data-lead-close aria-label="Закрыть">×</button>
+      <h2 class="modal-title" id="lead-modal-title">Забрать видеоурок</h2>
+      <p class="lead-modal__lead">Оставь контакты — и сразу перейдёшь в Telegram за уроком.</p>
+      <form class="lead-form" id="lead-form" novalidate>
+        <div class="field">
+          <label for="lead-name">Имя</label>
+          <input
+            id="lead-name"
+            name="name"
+            type="text"
+            autocomplete="given-name"
+            autocapitalize="words"
+            spellcheck="false"
+            placeholder="Как к тебе обращаться"
+            maxlength="80"
+            aria-describedby="lead-name-error"
+            required
+          />
+          <p class="field-error" id="lead-name-error" role="alert" hidden></p>
+        </div>
+        <div class="field">
+          <label for="lead-phone">Номер</label>
+          <input
+            id="lead-phone"
+            name="phone"
+            type="tel"
+            inputmode="tel"
+            autocomplete="tel"
+            placeholder="+375 25 555-12-12"
+            maxlength="22"
+            aria-describedby="lead-phone-error"
+            required
+          />
+          <p class="field-error" id="lead-phone-error" role="alert" hidden></p>
+        </div>
+        <button class="btn" type="submit" id="lead-submit">
+          Получить урок
+          <span aria-hidden="true">↗</span>
+        </button>
+        <p class="lead-form__hint" id="lead-hint" hidden></p>
+        <p class="lead-form__note">
+          Нажимая кнопку, ты соглашаешься с
+          <a href="#privacy" data-modal="privacy">политикой конфиденциальности</a>
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <template id="tpl-offer">
+    <div class="legal">
+      <p><strong>Публичная оферта</strong> на заключение договора об оказании информационно-консультационных услуг бренда ViMotion (программа AI Creator Education).</p>
+      <p>Редакция от 22.09.2026. Настоящий документ является официальным предложением (публичной офертой) в смысле ст. 405, 407 Гражданского кодекса Республики Беларусь и адресован любому дееспособному физическому лицу.</p>
+
+      <p><strong>1. Исполнитель</strong></p>
+      <p>1.1. Общество с ограниченной ответственностью «ХАЙТЬЮБ» (далее — «Исполнитель»), бренд ViMotion. Регистрационный номер 392036312. Свидетельство о регистрации государственного юридического лица выдано Оршанским районным исполнительным комитетом 9 января 2026 года. Юридический адрес: Республика Беларусь, Витебская область, г. Орша, ул. Ивана Флёрова, 2, офис 3, 211389.</p>
+      <p>1.2. Контакт для связи по договору — через каналы, указанные на сайте и в переписке по заявке. Полные платёжные реквизиты Исполнителя указываются в счёте, платёжной ссылке или иных документах на оплату.</p>
+
+      <p><strong>2. Термины</strong></p>
+      <p>2.1. Оферта — настоящий документ, размещённый на сайтах и лендингах ViMotion.</p>
+      <p>2.2. Акцепт — полное и безоговорочное принятие Оферты Заказчиком путём оплаты услуг и/или направления заявки с последующим подтверждением участия Исполнителем.</p>
+      <p>2.3. Заказчик — физическое лицо, акцептовавшее Оферту.</p>
+      <p>2.4. Услуги — информационно-консультационные и образовательные услуги по созданию контента, упаковке автора, работе с нейросетями и смежным навыкам в рамках программ и форматов ViMotion (включая, но не ограничиваясь: доступ к материалам, разборы, консультации, сопровождение, участие в закрытых чатах/созвонах — в объёме выбранного тарифа).</p>
+
+      <p><strong>3. Предмет договора</strong></p>
+      <p>3.1. Исполнитель обязуется оказать Заказчику Услуги в согласованном объёме, а Заказчик — принять и оплатить их.</p>
+      <p>3.2. Конкретный состав, срок, формат и стоимость Услуг фиксируются на консультации / квалификации и указываются в счёте, платёжном документе, сообщении Исполнителя или описании тарифа, на которое ссылается оплата. Такие условия являются неотъемлемой частью договора.</p>
+      <p>3.3. Услуги носят информационный характер и не являются образовательной деятельностью с выдачей диплома государственного образца, медицинской, юридической или финансовой консультацией в смысле специального регулирования.</p>
+      <p>3.4. Бесплатные материалы (в том числе видеоуроки) предоставляются отдельно и не обязывают стороны к заключению платного договора, если иное прямо не согласовано.</p>
+
+      <p><strong>4. Порядок заключения договора</strong></p>
+      <p>4.1. Договор считается заключённым с момента Акцепта.</p>
+      <p>4.2. Оплачивая Услуги, Заказчик подтверждает, что ознакомился с Офертой и Политикой конфиденциальности, согласен с их условиями и предоставляет достоверные данные.</p>
+      <p>4.3. Исполнитель вправе отказать в оказании Услуг до оплаты или до начала оказания, если Заказчик не прошёл квалификацию, предоставил недостоверные сведения либо если оказание Услуг объективно невозможно.</p>
+
+      <p><strong>5. Стоимость и оплата</strong></p>
+      <p>5.1. Стоимость Услуг определяется Исполнителем и сообщается Заказчику до оплаты.</p>
+      <p>5.2. Оплата производится способами и в валюте, указанными Исполнителем (банковский перевод, платёжная ссылка, эквайринг и т.п.).</p>
+      <p>5.3. Обязательства Заказчика по оплате считаются исполненными с момента поступления денежных средств Исполнителю или платёжному провайдеру, действующему в интересах Исполнителя.</p>
+      <p>5.4. Исполнитель вправе изменять цены на будущие продажи; уже оплаченные Услуги оказываются на условиях, действовавших на момент оплаты.</p>
+
+      <p><strong>6. Порядок оказания услуг</strong></p>
+      <p>6.1. Доступ к материалам и/или участникам программ предоставляется после подтверждения оплаты в разумный срок, если иное не согласовано сторонами.</p>
+      <p>6.2. Заказчик самостоятельно обеспечивает технические условия для получения Услуг (интернет, устройство, аккаунты мессенджеров).</p>
+      <p>6.3. Срок оказания Услуг исчисляется с даты предоставления доступа либо с иной даты, указанной в условиях тарифа.</p>
+      <p>6.4. Результаты (доход, охваты, трудоустройство и т.п.) зависят от действий Заказчика и внешних факторов; Исполнитель не гарантирует конкретных финансовых или карьерных показателей.</p>
+
+      <p><strong>7. Права и обязанности сторон</strong></p>
+      <p>7.1. Исполнитель обязуется оказать Услуги добросовестно и в согласованном объёме; вправе привлекать помощников и подрядчиков без передачи Заказчику персональных данных сверх необходимого.</p>
+      <p>7.2. Заказчик обязуется: предоставлять достоверные контакты; не передавать доступ третьим лицам; соблюдать правила общения в чатах и на созвонах; не распространять материалы Исполнителя без письменного согласия.</p>
+      <p>7.3. Материалы, методики, записи и иные результаты интеллектуальной деятельности Исполнителя защищены законом. Заказчик получает ограниченную неисключительную лицензию на личное использование на период доступа к Услугам.</p>
+
+      <p><strong>8. Отказ, возврат и изменение объёма</strong></p>
+      <p>8.1. Заказчик вправе отказаться от Услуг до начала их оказания. В этом случае Исполнитель возвращает оплаченную сумму за вычетом фактически понесённых расходов (комиссии платёжных систем и т.п.), если иное не согласовано письменно.</p>
+      <p>8.2. После начала оказания Услуг (предоставления доступа к материалам, участия в разборе/созвоне, выдачи персональных рекомендаций) возврат производится пропорционально неоказанной части Услуг либо не производится, если Услуга оказана в полном объёме / носит разовый характер — в соответствии с условиями тарифа, сообщёнными до оплаты.</p>
+      <p>8.3. Заявление о возврате направляется через каналы связи, указанные на сайте и в переписке по заявке, с указанием ФИО, даты оплаты, суммы и причины. Срок рассмотрения — до 10 рабочих дней; возврат при одобрении — в сроки, установленные банком/платёжной системой.</p>
+      <p>8.4. Исполнитель вправе в одностороннем порядке прекратить доступ без возврата при грубом нарушении Заказчиком правил общения, передачи доступа третьим лицам или распространения материалов.</p>
+
+      <p><strong>9. Ответственность</strong></p>
+      <p>9.1. Стороны несут ответственность в соответствии с законодательством Республики Беларусь.</p>
+      <p>9.2. Совокупная ответственность Исполнителя по договору ограничена суммой, фактически уплаченной Заказчиком за соответствующую Услугу, за исключением случаев, когда иное прямо предусмотрено императивными нормами закона.</p>
+      <p>9.3. Исполнитель не отвечает за сбои сторонних сервисов (мессенджеры, платформы оплаты, хостинг), действия третьих лиц и обстоятельства непреодолимой силы.</p>
+
+      <p><strong>10. Персональные данные</strong></p>
+      <p>10.1. Обработка персональных данных Заказчика осуществляется в соответствии с Политикой конфиденциальности ViMotion и законодательством Республики Беларусь о защите персональных данных.</p>
+
+      <p><strong>11. Изменение оферты и применимое право</strong></p>
+      <p>11.1. Исполнитель вправе изменять Оферту; новая редакция публикуется на сайте и действует для договоров, заключаемых после публикации. Для уже заключённых договоров действует редакция на дату Акцепта, если стороны не согласятся иное.</p>
+      <p>11.2. К договору применяется право Республики Беларусь. Споры стороны стремятся урегулировать переговорами; при недостижении согласия — в суде по месту регистрации Исполнителя, если иное не установлено императивными нормами о защите прав потребителей.</p>
+
+      <p><strong>12. Реквизиты для связи</strong></p>
+      <p>ООО «ХАЙТЬЮБ» · бренд ViMotion</p>
+      <p>Юр. адрес: Республика Беларусь, г. Орша, ул. Ивана Флёрова, 2, офис 3, Витебская область, 211389</p>
+      <p>Время работы: с 10:00 до 19:00</p>
+      <p>Телефон: +375255190282</p>
+      <p>Электронный адрес: Valentinmironoov3000@gmail.com</p>
+      <p>Регистрационный номер 392036312. Свидетельство выдано Оршанским районным исполнительным комитетом 9 января 2026 года.</p>
+      <p>8 (0216) 51-12-12 · rikorsha@vitobl.by</p>
+      <p class="legal-note">Акцепт оферты = оплата услуг и/или подтверждённая заявка</p>
+    </div>
+  </template>
+
+  <template id="tpl-privacy">
+    <div class="legal">
+      <p><strong>Политика конфиденциальности</strong> (обработка персональных данных) бренда ViMotion.</p>
+      <p>Редакция от 22.09.2026. Документ определяет порядок обработки персональных данных пользователей сайтов, лендингов, квизов и иных цифровых форм ViMotion в соответствии с Законом Республики Беларусь от 7 мая 2021 г. № 99-З «О защите персональных данных».</p>
+
+      <p><strong>1. Оператор</strong></p>
+      <p>1.1. Оператор персональных данных: ООО «ХАЙТЬЮБ» (бренд ViMotion), регистрационный номер 392036312. Юридический адрес: Республика Беларусь, Витебская область, г. Орша, ул. Ивана Флёрова, 2, офис 3, 211389.</p>
+      <p>1.2. Контакт по вопросам персональных данных: +375255190282, Valentinmironoov3000@gmail.com, а также через каналы, указанные на сайте и в переписке по заявке.</p>
+
+      <p><strong>2. Какие данные обрабатываем</strong></p>
+      <p>2.1. Данные, которые вы указываете сами: ФИО / имя; номер телефона; никнейм Telegram; ответы анкеты / квиза; иные сведения, которые вы добровольно сообщаете в переписке или на консультации.</p>
+      <p>2.2. Технические данные при посещении сайта: IP-адрес, сведения о браузере и устройстве, дата и время обращения, источник перехода, файлы cookie и аналогичные идентификаторы — в объёме, необходимом для работы сайта и аналитики.</p>
+      <p>2.3. Платёжные данные (сумма, статус оплаты, идентификатор платежа) могут поступать от платёжных провайдеров; реквизиты банковских карт Оператор, как правило, не получает и не хранит.</p>
+
+      <p><strong>3. Цели обработки</strong></p>
+      <p>3.1. Связь с заявителем, запись на консультацию / разбор, квалификация на обучение.</p>
+      <p>3.2. Заключение и исполнение договора (публичной оферты), оказание услуг, поддержка.</p>
+      <p>3.3. Направление сервисных сообщений по заявке и статусу оплаты.</p>
+      <p>3.4. Улучшение сайтов и сервисов, статистика и аналитика посещаемости.</p>
+      <p>3.5. Соблюдение требований законодательства Республики Беларусь (в том числе бухгалтерский и налоговый учёт).</p>
+      <p>3.6. При наличии отдельного согласия — информационные и маркетинговые сообщения о продуктах ViMotion; согласие можно отозвать в любой момент.</p>
+
+      <p><strong>4. Правовые основания</strong></p>
+      <p>4.1. Согласие субъекта персональных данных.</p>
+      <p>4.2. Необходимость исполнения договора либо совершения преддоговорных действий по запросу субъекта.</p>
+      <p>4.3. Законные интересы Оператора в рамках разумных ожиданий пользователя (работа сайта, безопасность, улучшение сервиса) — при условии соблюдения прав субъекта и требований Закона № 99-З.</p>
+
+      <p><strong>5. Как обрабатываем и кому передаём</strong></p>
+      <p>5.1. Обработка включает сбор, запись, систематизацию, хранение, уточнение, использование, передачу (предоставление, доступ), обезличивание, блокирование, удаление и уничтожение — в объёме, нужном для целей раздела 3.</p>
+      <p>5.2. Оператор не продаёт персональные данные и не передаёт их третьим лицам для их собственного маркетинга.</p>
+      <p>5.3. Данные могут передаваться подрядчикам, действующим по поручению Оператора: хостинг и инфраструктура сайта; сервисы рассылок / CRM; платёжные провайдеры; мессенджеры и каналы связи — только в объёме, необходимом для оказания услуги.</p>
+      <p>5.4. Передача государственным органам возможна только в случаях, прямо предусмотренных законодательством Республики Беларусь.</p>
+
+      <p><strong>6. Cookies и аналитика</strong></p>
+      <p>6.1. Сайт может использовать cookie и схожие технологии для работы страниц, сохранения предпочтений и обезличенной статистики.</p>
+      <p>6.2. Вы можете ограничить cookie в настройках браузера; часть функций сайта при этом может работать некорректно.</p>
+
+      <p><strong>7. Сроки хранения и защита</strong></p>
+      <p>7.1. Данные хранятся до достижения целей обработки, отзыва согласия (если обработка опиралась на согласие) либо в течение сроков, установленных законом для договоров, учёта и защиты прав.</p>
+      <p>7.2. Оператор принимает разумные организационные и технические меры для защиты данных от неправомерного доступа, утраты и изменения.</p>
+
+      <p><strong>8. Права субъекта</strong></p>
+      <p>8.1. Вы вправе запросить сведения об обработке ваших данных, потребовать уточнения, блокирования или удаления (если это не противоречит закону и обязательствам по договору), отозвать согласие на обработку и/или на маркетинг.</p>
+      <p>8.2. Для реализации прав напишите на Valentinmironoov3000@gmail.com или через каналы связи на сайте, с пометкой «Персональные данные», укажите ФИО / телефон, с которого оставляли заявку, и суть запроса. Ответ направляется в разумный срок, обычно до 30 дней.</p>
+      <p>8.3. Вы также вправе обратиться с жалобой в уполномоченный орган по защите прав субъектов персональных данных (Национальный центр защиты персональных данных Республики Беларусь).</p>
+
+      <p><strong>9. Данные несовершеннолетних</strong></p>
+      <p>9.1. Сервисы ViMotion ориентированы на лиц старше 18 лет. Если вы считаете, что мы получили данные ребёнка без согласия законного представителя, сообщите нам — мы удалим такие данные.</p>
+
+      <p><strong>10. Изменение политики</strong></p>
+      <p>10.1. Оператор может обновлять Политику. Актуальная версия всегда доступна на сайте. Существенные изменения применяются к обработке, осуществляемой после публикации новой редакции.</p>
+
+      <p><strong>11. Контакты</strong></p>
+      <p>ООО «ХАЙТЬЮБ» · бренд ViMotion</p>
+      <p>Юр. адрес: Республика Беларусь, г. Орша, ул. Ивана Флёрова, 2, офис 3, Витебская область, 211389</p>
+      <p>Время работы: с 10:00 до 19:00</p>
+      <p>Телефон: +375255190282</p>
+      <p>Электронный адрес: Valentinmironoov3000@gmail.com</p>
+      <p>Регистрационный номер 392036312. Свидетельство выдано Оршанским районным исполнительным комитетом 9 января 2026 года.</p>
+      <p>8 (0216) 51-12-12 · rikorsha@vitobl.by</p>
+      <p class="legal-note">Отправка заявки = согласие на обработку данных</p>
+    </div>
+  </template>
+
+  <script>
+    (() => {
+      document.documentElement.classList.add("js");
+      const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const hero = document.querySelector(".hero");
+      const about = document.querySelector(".about");
+
+      /* Progressive blur while about covers hero */
+      if (hero && about && !reduce) {
+        let ticking = false;
+        const updateBlur = () => {
+          ticking = false;
+          const vh = window.innerHeight || 1;
+          const top = about.getBoundingClientRect().top;
+          const progress = Math.min(1, Math.max(0, 1 - top / vh));
+          const eased = progress * progress;
+          const maxBlur = matchMedia("(min-width: 960px)").matches ? 14 : 10;
+          hero.style.setProperty("--hero-blur", `${(eased * maxBlur).toFixed(2)}px`);
+          hero.style.setProperty("--hero-dim", eased.toFixed(3));
+        };
+        const onScroll = () => {
+          if (ticking) return;
+          ticking = true;
+          requestAnimationFrame(updateBlur);
+        };
+        window.addEventListener("scroll", onScroll, { passive: true });
+        window.addEventListener("resize", onScroll, { passive: true });
+        updateBlur();
+      }
+
+      const animateCount = (el) => {
+        if (el.dataset.done) return;
+        el.dataset.done = "1";
+        const target = Number(el.dataset.count);
+        const suffix = el.dataset.suffix || "";
+        const format = el.dataset.format || "";
+        if (!Number.isFinite(target)) return;
+
+        const formatNumber = (value) => {
+          const rounded = Math.round(value);
+          if (format === "dot") {
+            return String(rounded).replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+          }
+          return String(rounded);
+        };
+
+        if (reduce) {
+          el.textContent = `${formatNumber(target)}${suffix}`;
+          return;
+        }
+
+        const duration = 1100;
+        const start = performance.now();
+        const tick = (now) => {
+          const t = Math.min(1, (now - start) / duration);
+          const eased = 1 - Math.pow(1 - t, 3);
+          el.textContent = `${formatNumber(target * eased)}${suffix}`;
+          if (t < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      };
+
+      const onReveal = (el) => {
+        el.classList.add("in");
+        el.querySelectorAll(".count[data-count]").forEach(animateCount);
+      };
+
+      const nodes = [...document.querySelectorAll(".reveal")];
+
+      if (reduce || !("IntersectionObserver" in window)) {
+        nodes.forEach(onReveal);
+      } else {
+        const io = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((e) => {
+              if (!e.isIntersecting) return;
+              onReveal(e.target);
+              io.unobserve(e.target);
+            });
+          },
+          { threshold: 0.18, rootMargin: "0px 0px -6% 0px" }
+        );
+        nodes.forEach((n) => io.observe(n));
+        setTimeout(() => nodes.forEach(onReveal), 2500);
+      }
+
+      /* Modals — same as social */
+      const root = document.getElementById("modal-root");
+      if (root) {
+        const titleEl = document.getElementById("modal-title");
+        const bodyEl = document.getElementById("modal-body");
+        const dialog = root.querySelector(".modal");
+        let lastFocus = null;
+        const titles = {
+          offer: "Оферта",
+          privacy: "Политика конфиденциальности",
+        };
+
+        function openModal(key) {
+          const tpl = document.getElementById("tpl-" + key);
+          if (!tpl) return;
+          lastFocus = document.activeElement;
+          titleEl.textContent = titles[key] || "";
+          bodyEl.innerHTML = "";
+          bodyEl.appendChild(tpl.content.cloneNode(true));
+          root.style.zIndex = "110";
+          root.hidden = false;
+          root.classList.remove("is-open");
+          void root.offsetWidth;
+          if (!reduce) root.classList.add("is-open");
+          document.body.style.overflow = "hidden";
+          dialog.focus();
+        }
+
+        function closeModal() {
+          if (root.hidden) return;
+          root.classList.remove("is-open");
+          root.hidden = true;
+          root.style.zIndex = "";
+          bodyEl.innerHTML = "";
+          const leadOpen = document.getElementById("lead-modal");
+          if (!leadOpen || leadOpen.hidden) {
+            document.body.style.overflow = "";
+          }
+          if (lastFocus && lastFocus.focus) lastFocus.focus();
+        }
+
+        document.querySelectorAll("[data-modal]").forEach((link) => {
+          link.addEventListener("click", (e) => {
+            e.preventDefault();
+            openModal(link.getAttribute("data-modal"));
+          });
+        });
+
+        root.addEventListener("click", (e) => {
+          if (e.target.closest("[data-close-modal]")) closeModal();
+        });
+
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") closeModal();
+        });
+      }
+
+      /* Lead form modal — «Забрать видеоурок» */
+      const leadRoot = document.getElementById("lead-modal");
+      const leadForm = document.getElementById("lead-form");
+      if (leadRoot && leadForm) {
+        const leadDialog = leadRoot.querySelector(".modal");
+        const nameInput = document.getElementById("lead-name");
+        const phoneInput = document.getElementById("lead-phone");
+        const submitBtn = document.getElementById("lead-submit");
+        const hintEl = document.getElementById("lead-hint");
+        const BOT_URL = "https://t.me/creatorwayBot";
+        const NAME_ALLOWED = /^[A-Za-zА-Яа-яЁёІіЇїЄєҒғҚқҮүҰұҢңӨөҺһʼ'’.\-\s]+$/;
+        let leadFocus = null;
+        let submitting = false;
+
+        function compactSpaces(value) {
+          return value.trim().replace(/\s+/g, " ");
+        }
+
+        function nameError(value) {
+          const name = compactSpaces(value);
+          if (!name) return "Укажи имя";
+          if (!NAME_ALLOWED.test(name)) return "Имя может содержать только буквы";
+          const letters = (name.match(/[A-Za-zА-Яа-яЁёІіЇїЄєҒғҚқҮүҰұҢңӨөҺһ]/g) || []).length;
+          if (letters < 2) return "Укажи имя";
+          return "";
+        }
+
+        function phoneDigits(value) {
+          let digits = value.replace(/\D/g, "");
+          // Локальный РФ/РБ без кода страны: 9XXXXXXXXX → +7…
+          if (digits.length === 10 && digits.startsWith("9")) digits = "7" + digits;
+          // РФ: 8XXXXXXXXXX → +7…
+          if (digits.length === 11 && digits.startsWith("8")) digits = "7" + digits.slice(1);
+          return digits;
+        }
+
+        function formatPhone(digits) {
+          if (digits.length === 11 && digits.startsWith("7")) {
+            return `+7 ${digits.slice(1, 4)} ${digits.slice(4, 7)}-${digits.slice(7, 9)}-${digits.slice(9)}`;
+          }
+          if (digits.length === 12 && digits.startsWith("375")) {
+            return `+375 ${digits.slice(3, 5)} ${digits.slice(5, 8)}-${digits.slice(8, 10)}-${digits.slice(10)}`;
+          }
+          return `+${digits}`;
+        }
+
+        function phoneError(value) {
+          if (!value.trim()) return "Укажи номер телефона";
+          const digits = phoneDigits(value);
+          // E.164: код страны + номер, всего 8–15 цифр, не с нуля
+          if (digits.length < 8 || digits.length > 15 || digits.startsWith("0")) {
+            return "Введи номер с кодом страны, например +375 25 555-12-12";
+          }
+          return "";
+        }
+
+        function setFieldError(input, message) {
+          const field = input.closest(".field");
+          const errorEl = field.querySelector(".field-error");
+          const invalid = Boolean(message);
+          field.classList.toggle("is-invalid", invalid);
+          input.setAttribute("aria-invalid", invalid ? "true" : "false");
+          errorEl.hidden = !invalid;
+          errorEl.textContent = message;
+        }
+
+        function validateField(input) {
+          const message = input === nameInput
+            ? nameError(input.value)
+            : phoneError(input.value);
+          setFieldError(input, message);
+          return !message;
+        }
+
+        function setHint(message, isError) {
+          if (!message) {
+            hintEl.hidden = true;
+            hintEl.textContent = "";
+            hintEl.classList.remove("is-error");
+            return;
+          }
+          hintEl.hidden = false;
+          hintEl.textContent = message;
+          hintEl.classList.toggle("is-error", Boolean(isError));
+        }
+
+        function openLeadModal() {
+          leadFocus = document.activeElement;
+          leadRoot.hidden = false;
+          leadRoot.classList.remove("is-open");
+          void leadRoot.offsetWidth;
+          if (!reduce) leadRoot.classList.add("is-open");
+          document.body.style.overflow = "hidden";
+          nameInput.focus();
+        }
+
+        function closeLeadModal() {
+          if (leadRoot.hidden || submitting) return;
+          leadRoot.classList.remove("is-open");
+          leadRoot.hidden = true;
+          if (document.getElementById("modal-root")?.hidden !== false) {
+            document.body.style.overflow = "";
+          }
+          if (leadFocus && leadFocus.focus) leadFocus.focus();
+        }
+
+        document.querySelectorAll("[data-lead-open]").forEach((btn) => {
+          btn.addEventListener("click", openLeadModal);
+        });
+
+        leadRoot.addEventListener("click", (e) => {
+          if (e.target.closest("[data-lead-close]")) closeLeadModal();
+        });
+
+        document.addEventListener("keydown", (e) => {
+          if (e.key !== "Escape" || leadRoot.hidden) return;
+          const legalRoot = document.getElementById("modal-root");
+          if (legalRoot && !legalRoot.hidden) return;
+          closeLeadModal();
+        });
+
+        [nameInput, phoneInput].forEach((input) => {
+          input.addEventListener("blur", () => {
+            validateField(input);
+            if (input === phoneInput && !phoneError(input.value)) {
+              input.value = formatPhone(phoneDigits(input.value));
+            }
+          });
+          input.addEventListener("input", () => {
+            if (input.closest(".field").classList.contains("is-invalid")) {
+              validateField(input);
+            }
+          });
+        });
+
+        leadForm.addEventListener("submit", async (event) => {
+          event.preventDefault();
+          if (submitting) return;
+
+          const nameOk = validateField(nameInput);
+          const phoneOk = validateField(phoneInput);
+          if (!nameOk || !phoneOk) {
+            (!nameOk ? nameInput : phoneInput).focus();
+            return;
+          }
+
+          const digits = phoneDigits(phoneInput.value);
+          phoneInput.value = formatPhone(digits);
+
+          submitting = true;
+          submitBtn.disabled = true;
+          setHint("Отправляю…", false);
+
+          try {
+            const response = await fetch("../api/send-lesson.php", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                name: compactSpaces(nameInput.value),
+                phone: formatPhone(digits),
+                vid: typeof window.vmVid === "function" ? window.vmVid() : null,
+                variant: typeof window.vmGetAbVariant === "function" ? window.vmGetAbVariant() : (window.vmAbVariant || null),
+                utm: typeof window.vmUtms === "function" ? window.vmUtms() : {},
+                sourceUrl: typeof window.vmEntryUrl === "function" ? window.vmEntryUrl() : location.href,
+              }),
+            });
+
+            const result = await response.json().catch(() => null);
+
+            if (!response.ok || !result?.ok) {
+              throw new Error(result?.error || "Не удалось отправить заявку");
+            }
+
+            setHint("Готово! Открываю Telegram…", false);
+            if (typeof window.gtag === "function") {
+              window.gtag("event", "generate_lead", { ab_variant: typeof window.vmGetAbVariant === "function" ? window.vmGetAbVariant() : (window.vmAbVariant || "A") });
+            }
+            try {
+              sessionStorage.setItem("vm_lead_pending", "1");
+            } catch (e) {}
+            let next = "success.html" + location.search;
+            if (typeof window.vmWithUtm === "function") next = window.vmWithUtm(next);
+            window.location.href = next;
+          } catch (error) {
+            submitting = false;
+            submitBtn.disabled = false;
+            setHint(
+              error instanceof Error ? error.message : "Не удалось отправить. Попробуй ещё раз.",
+              true
+            );
+          }
+        });
+      }
+    })();
+  </script>
+  <script src="../assets/js/utm.js"></script>
+  <script src="../assets/js/track.js"></script>
+  <script>if (typeof window.vmTrack === "function") window.vmTrack("landing_view");</script>
+  <script src="https://vimotion-program-production.up.railway.app/vm-analytics.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+.env
+.DS_Store
+data/events.jsonl
+
+# GitHub rejects files >100MB; keep these local / on the server
+assets/video/vsl.mp4
+assets/img/landing/cases/alena/interview.mp4
+assets/img/landing/cases/ivan/interview.mp4
+
