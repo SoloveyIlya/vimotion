@@ -1710,6 +1710,7 @@
 
     /* Desktop polish requested for variant B */
     .b-desktop-break { display: none; }
+    br.b-mobile-break { display: block; }
     .b-learn-item p { font-size: clamp(16px, 1.45vw, 19px); font-weight: 800; line-height: 1.45; }
     .b-video { pointer-events: none; }
     .b-video-play { top: 0; left: 0; width: 100%; height: 100%; padding: 0; transform: none; border: 0; border-radius: 0; background: transparent; }
@@ -1720,6 +1721,7 @@
 
     @media (min-width: 761px) {
       br.b-desktop-break { display: block; }
+      br.b-mobile-break { display: none; }
       .b-section--about { padding: 0; }
       .b-about-grid { width: 100%; max-width: none; margin: 0; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: stretch; gap: 0; min-height: 100svh; }
       .b-about-photo-wrap { display: flex; width: 100%; height: 100%; min-height: 100svh; margin: 0; padding: 0; border: 0; }
@@ -1733,6 +1735,7 @@
 
     @media (max-width: 760px) {
       br.b-desktop-break { display: none; }
+      br.b-mobile-break { display: block; }
       .b-learn-item p { font-size: 15px; font-weight: 800; }
       .b-video-play::before { width: 58px; height: 58px; }
       .b-section--about { padding: 62px 0; }
@@ -1755,7 +1758,7 @@
       <section class="b-hero" aria-label="Бесплатный урок">
         <div class="b-wrap">
           <p class="b-kicker">Бесплатный урок · ViMotion</p>
-          <h1 class="b-title">Как за 2 месяца с нуля освоить профессию <em>контент-креатора</em> и выйти на <em>1000$ в месяц</em></h1>
+          <h1 class="b-title">Как за 2 месяца<br class="b-mobile-break" /> с нуля <br class="b-desktop-break" />освоить<br class="b-mobile-break" /> профессию<br /> <em>контент-креатора</em><br class="b-mobile-break" /> и выйти <br class="b-desktop-break" />на<br class="b-mobile-break" /> <em>1000$ в месяц</em></h1>
           <p class="b-hero__lead">Бесплатный урок от Валентина Сушнёва, который начинал с контента<br class="b-desktop-break" /> на мамином компьютере в Орше, а сейчас записывает этот урок из Майами</p>
           <div class="b-video-shell" id="b-video-shell">
             <div class="b-video-inner">
