@@ -267,7 +267,7 @@ function normalizeQuizTelegram(string $telegram): ?string
 {
     $handle = trim($telegram);
     if ($handle === '') {
-        return null;
+        return '';
     }
 
     $handle = preg_replace('#^https?://(?:t\.me|telegram\.me)/#i', '', $handle) ?? $handle;
@@ -297,7 +297,7 @@ if ($phone === null) {
 $telegram = normalizeQuizTelegram($telegramRaw);
 if ($telegram === null) {
     http_response_code(422);
-    echo json_encode(['ok' => false, 'error' => 'Укажи ник Telegram'], JSON_UNESCAPED_UNICODE);
+    echo json_encode(['ok' => false, 'error' => 'Ник должен быть вида @username'], JSON_UNESCAPED_UNICODE);
     exit;
 }
 
@@ -357,7 +357,7 @@ $blocks = array_merge(
     [quizFieldBlock('Имя', $name)],
     $fieldBlocks,
     [
-        quizFieldBlock('Ник в Telegram', $telegram),
+        quizFieldBlock('Ник в Telegram', $telegram !== '' ? $telegram : 'не указан'),
         quizFieldBlock('Номер телефона', $phone),
     ]
 );
