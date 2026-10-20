@@ -102,32 +102,18 @@ function isValidLessonName(string $name): bool
     return mb_strlen($letters) >= 2;
 }
 
-function normalizeLessonPhone(string $phone): ?string
+function normalizeLessonEmail(string $email): ?string
 {
-    $digits = preg_replace('/\D+/', '', $phone) ?? '';
-
-    if (strlen($digits) === 10 && str_starts_with($digits, '9')) {
-        $digits = '7' . $digits;
-    }
-
-    if (strlen($digits) === 11 && str_starts_with($digits, '8')) {
-        $digits = '7' . substr($digits, 1);
-    }
-
-    // E.164: код страны + номер, 8–15 цифр, не с нуля
-    if (strlen($digits) < 8 || strlen($digits) > 15 || str_starts_with($digits, '0')) {
+    $email = trim($email);
+    if ($email === '' || strlen($email) > 120) {
         return null;
     }
 
-    if (strlen($digits) === 11 && str_starts_with($digits, '7')) {
-        return '+7 ' . substr($digits, 1, 3) . ' ' . substr($digits, 4, 3) . '-' . substr($digits, 7, 2) . '-' . substr($digits, 9, 2);
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        return null;
     }
 
-    if (strlen($digits) === 12 && str_starts_with($digits, '375')) {
-        return '+375 ' . substr($digits, 3, 2) . ' ' . substr($digits, 5, 3) . '-' . substr($digits, 8, 2) . '-' . substr($digits, 10, 2);
-    }
-
-    return '+' . $digits;
+    return $email;
 }
 
 $sheetsUrl = (string) (getenv('GOOGLE_SHEETS_WEBHOOK_URL') ?: ($_ENV['GOOGLE_SHEETS_WEBHOOK_URL'] ?? ''));
@@ -151,7 +137,7 @@ if (!is_array($data)) {
 }
 
 $name = trim(preg_replace('/\s+/u', ' ', (string) ($data['name'] ?? '')) ?? '');
-$phoneRaw = trim((string) ($data['phone'] ?? ''));
+$emailRaw = trim((string) ($data['email'] ?? ''));
 $vid = isset($data['vid']) ? (string) $data['vid'] : null;
 $variant = isset($data['variant']) ? (string) $data['variant'] : (isset($_COOKIE['vm_ab_landing_v1']) ? (string) $_COOKIE['vm_ab_landing_v1'] : null);
 
@@ -161,17 +147,17 @@ if (!isValidLessonName($name)) {
     exit;
 }
 
-$phone = normalizeLessonPhone($phoneRaw);
-if ($phone === null) {
+$email = normalizeLessonEmail($emailRaw);
+if ($email === null) {
     http_response_code(422);
-    echo json_encode(['ok' => false, 'error' => 'Некорректный номер телефона'], JSON_UNESCAPED_UNICODE);
+    echo json_encode(['ok' => false, 'error' => 'Укажи почту'], JSON_UNESCAPED_UNICODE);
     exit;
 }
 
 $sheetPayload = [
     'type' => 'lesson',
     'name' => $name,
-    'phone' => $phone,
+    'phone' => $email,
     'source' => 'landing',
 ];
 
