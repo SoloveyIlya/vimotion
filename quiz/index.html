@@ -512,8 +512,8 @@
             <p class="field-error" id="phoneError" role="alert" hidden></p>
           </div>
           <div class="field">
-            <label for="telegram">Ник ТГ (необязательно)</label>
-            <input id="telegram" name="telegram" type="text" autocomplete="username" spellcheck="false" placeholder="@username" maxlength="64" aria-describedby="telegramError" />
+            <label for="telegram">Ник ТГ</label>
+            <input id="telegram" name="telegram" type="text" autocomplete="username" spellcheck="false" placeholder="@username" maxlength="64" aria-describedby="telegramError" required />
             <p class="field-error" id="telegramError" role="alert" hidden></p>
           </div>
 
@@ -703,7 +703,7 @@
 
     function telegramError(value) {
       const handle = telegramHandle(value);
-      if (!handle) return "";
+      if (!handle) return "Укажи ник в Telegram";
       if (!/^[A-Za-z][A-Za-z0-9_]{4,31}$/.test(handle)) {
         return "Ник должен быть вида @username";
       }
