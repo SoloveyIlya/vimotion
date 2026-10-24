@@ -19,7 +19,7 @@
   t.src=v;s=b.getElementsByTagName(e)[0];
   s.parentNode.insertBefore(t,s)}(window, document,'script',
   'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '1638653997627566');
+  fbq('init', '1435661615372398');
   var vmPixel = typeof window.vmAbPixelData === 'function' ? window.vmAbPixelData() : { ab_variant: window.vmAbVariant || 'A', content_name: 'landing_' + (window.vmAbVariant || 'A') };
   fbq('track', 'PageView', vmPixel);
   (function () {
@@ -28,11 +28,11 @@
       fireLead = sessionStorage.getItem("vm_lead_pending") === "1";
       if (fireLead) sessionStorage.removeItem("vm_lead_pending");
     } catch (e) {}
-    if (fireLead) fbq('track', 'Lead', vmPixel);
+    if (fireLead) fbq('track', 'CompleteRegistration', vmPixel);
   })();
   </script>
   <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=1638653997627566&ev=PageView&noscript=1"
+  src="https://www.facebook.com/tr?id=1435661615372398&ev=PageView&noscript=1"
   /></noscript>
   <!-- End Meta Pixel Code -->
   <link rel="preconnect" href="https://api.fontshare.com" />

@@ -62,9 +62,9 @@ $boot = '<script>window.vmAbVariant=' . json_encode($variant, JSON_UNESCAPED_SLA
 $html = preg_replace('/<html\b/i', '<html data-ab-variant="' . $variant . '"', $html, 1) ?? $html;
 $html = preg_replace('/<head([^>]*)>/i', '<head$1>' . "\n  " . $boot, $html, 1) ?? $html;
 
-$pixel = 'https://www.facebook.com/tr?id=1638653997627566&ev=PageView&noscript=1&cd[ab_variant]=' . $variant . '&cd[content_name]=landing_' . $variant;
+$pixel = 'https://www.facebook.com/tr?id=1435661615372398&ev=PageView&noscript=1&cd[ab_variant]=' . $variant . '&cd[content_name]=landing_' . $variant;
 $html = preg_replace(
-    '#https://www\.facebook\.com/tr\?id=1638653997627566&ev=PageView&noscript=1#',
+    '#https://www\.facebook\.com/tr\?id=1435661615372398&ev=PageView&noscript=1#',
     $pixel,
     $html,
     1
