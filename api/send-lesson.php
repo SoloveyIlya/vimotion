@@ -102,18 +102,22 @@ function isValidLessonName(string $name): bool
     return mb_strlen($letters) >= 2;
 }
 
-function normalizeLessonEmail(string $email): ?string
+/**
+ * Контакт в Sheets — строка (телефон / Telegram / email с варианта B).
+ * Формат проверяет клиент; сервер только принимает непустую строку.
+ */
+function normalizeLessonContact(array $data): ?string
 {
-    $email = trim($email);
-    if ($email === '' || strlen($email) > 120) {
+    $contact = trim((string) ($data['phone'] ?? $data['contact'] ?? ''));
+    if ($contact === '') {
+        $contact = trim((string) ($data['email'] ?? ''));
+    }
+
+    if ($contact === '' || strlen($contact) > 120) {
         return null;
     }
 
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        return null;
-    }
-
-    return $email;
+    return $contact;
 }
 
 $sheetsUrl = (string) (getenv('GOOGLE_SHEETS_WEBHOOK_URL') ?: ($_ENV['GOOGLE_SHEETS_WEBHOOK_URL'] ?? ''));
@@ -137,7 +141,6 @@ if (!is_array($data)) {
 }
 
 $name = trim(preg_replace('/\s+/u', ' ', (string) ($data['name'] ?? '')) ?? '');
-$emailRaw = trim((string) ($data['email'] ?? ''));
 $vid = isset($data['vid']) ? (string) $data['vid'] : null;
 $variant = isset($data['variant']) ? (string) $data['variant'] : (isset($_COOKIE['vm_ab_landing_v1']) ? (string) $_COOKIE['vm_ab_landing_v1'] : null);
 
@@ -147,17 +150,17 @@ if (!isValidLessonName($name)) {
     exit;
 }
 
-$email = normalizeLessonEmail($emailRaw);
-if ($email === null) {
+$contact = normalizeLessonContact($data);
+if ($contact === null) {
     http_response_code(422);
-    echo json_encode(['ok' => false, 'error' => 'Укажи почту'], JSON_UNESCAPED_UNICODE);
+    echo json_encode(['ok' => false, 'error' => 'Укажи Telegram или телефон'], JSON_UNESCAPED_UNICODE);
     exit;
 }
 
 $sheetPayload = [
     'type' => 'lesson',
     'name' => $name,
-    'phone' => $email,
+    'phone' => $contact,
     'source' => 'landing',
 ];
 

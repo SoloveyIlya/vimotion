@@ -28,7 +28,7 @@
       fireLead = sessionStorage.getItem("vm_lead_pending") === "1";
       if (fireLead) sessionStorage.removeItem("vm_lead_pending");
     } catch (e) {}
-    if (fireLead) fbq('track', 'CompleteRegistration', vmPixel);
+    if (fireLead) fbq('track', 'Lead', vmPixel);
   })();
   </script>
   <noscript><img height="1" width="1" style="display:none"

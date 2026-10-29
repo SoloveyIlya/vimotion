@@ -120,9 +120,11 @@
       top: 0;
       z-index: 1;
       display: grid;
-      grid-template-rows: auto auto;
+      grid-template-rows: auto minmax(0, 1fr);
       min-height: 100svh;
       min-height: 100dvh;
+      height: 100svh;
+      height: 100dvh;
       --hero-blur: 0px;
       --hero-dim: 0;
       isolation: isolate;
@@ -139,10 +141,9 @@
 
     .hero__photo {
       position: relative;
-      order: -1;
       z-index: 0;
       width: 100%;
-      aspect-ratio: 1 / 1;
+      min-height: 0;
       overflow: hidden;
       background: #1a1a1a;
       filter: blur(var(--hero-blur));
@@ -164,10 +165,10 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      flex: 1 1 auto;
-      gap: 12px;
+      flex: 0 0 auto;
+      gap: 10px;
       margin-top: 0;
-      padding: 18px max(16px, env(safe-area-inset-right)) calc(18px + env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
+      padding: 14px max(16px, env(safe-area-inset-right)) 14px max(16px, env(safe-area-inset-left));
       text-align: center;
       background: var(--cream);
       border-radius: 0;
@@ -176,8 +177,8 @@
     }
 
     .hero__lead {
-      max-width: 28em;
-      font-size: clamp(12px, 3.2vw, 14px);
+      max-width: 34em;
+      font-size: clamp(12px, 3.1vw, 14px);
       font-weight: 600;
       line-height: 1.35;
       color: var(--soft);
@@ -185,9 +186,9 @@
 
     .hero__title {
       font-family: var(--display);
-      font-size: clamp(32px, 9.5vw, 48px);
+      font-size: clamp(26px, 7.4vw, 40px);
       font-weight: 700;
-      line-height: 0.9;
+      line-height: 0.95;
       letter-spacing: -0.04em;
       text-transform: uppercase;
     }
@@ -201,10 +202,25 @@
       color: var(--cola);
     }
 
+    .hero__pack {
+      max-width: 22em;
+      font-family: var(--display);
+      font-size: clamp(20px, 5.8vw, 30px);
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -0.03em;
+      text-transform: uppercase;
+    }
+
+    .hero__pack em {
+      font-style: normal;
+      color: var(--cola);
+    }
+
     .hero__copy .btn {
       margin-top: 2px;
       max-width: 420px;
-      min-height: 52px;
+      min-height: 48px;
     }
 
     /* ========== ABOUT ========== */
@@ -958,7 +974,7 @@
         z-index: auto;
         align-items: flex-start;
         text-align: left;
-        gap: 28px;
+        gap: 22px;
         margin-top: 0;
         border-radius: 0;
         padding: clamp(48px, 8vh, 80px) clamp(40px, 5vw, 72px);
@@ -968,15 +984,20 @@
 
       .hero__lead {
         font-size: 18px;
-        max-width: 32em;
+        max-width: 34em;
       }
 
       .hero__title {
-        font-size: clamp(64px, 5.8vw, 92px);
+        font-size: clamp(48px, 4.6vw, 72px);
       }
 
       .hero__title .line {
         white-space: nowrap;
+      }
+
+      .hero__pack {
+        font-size: clamp(28px, 2.8vw, 40px);
+        max-width: 18em;
       }
 
       .hero__copy .btn {
@@ -1152,16 +1173,18 @@
       <!-- 1. Первый экран -->
       <section class="hero" aria-label="Первый экран">
         <div class="hero__copy">
-          <p class="hero__lead">
-            Я подготовил для тебя пошаговый план,<br />
-            как с нуля стать контент-креатором<br />
-            и начать зарабатывать на контенте
-          </p>
           <h1 class="hero__title">
-            <span class="line">И упаковал его</span>
-            <span class="line">в <em>бесплатный</em></span>
-            <span class="line">видеоурок</span>
+            <span class="line">Удалённая работа</span>
+            <span class="line">с контентом:</span>
+            <span class="line">от нуля до</span>
+            <span class="line">первых клиентов</span>
           </h1>
+          <p class="hero__lead">
+            Я подготовил пошаговый план, как освоить монтаж,<br />
+            сценарии и ИИ-инструменты и вести проекты<br />
+            из любой точки мира
+          </p>
+          <p class="hero__pack">И упаковал его в <em>бесплатный</em> видеоурок</p>
           <button class="btn" type="button" data-lead-open>
             Забрать видеоурок
             <span aria-hidden="true">↗</span>
@@ -1210,25 +1233,11 @@
                 </span>
                 <p class="about__text">
                   <span class="line">В видеоконтенте</span>
-                  <span class="line">с <span class="count" data-count="2019">0</span> года</span>
+                  <span class="line"><span class="about__unit">7 лет</span></span>
                 </p>
               </li>
 
               <li class="about__item reveal" style="--d: 180ms">
-                <span class="about__icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none">
-                    <path d="M12 5.2c4.7 0 8.4 3.4 9.7 6.8-1.3 3.4-5 6.8-9.7 6.8S3.6 15.4 2.3 12C3.6 8.6 7.3 5.2 12 5.2Z" stroke="currentColor" stroke-width="1.6" />
-                    <circle cx="12" cy="12" r="3.1" fill="currentColor" />
-                  </svg>
-                </span>
-                <p class="about__text">
-                  <span class="line">Сделал суммарно <span class="count" data-count="500" data-suffix="+">0</span> <span class="about__unit">МЛН</span></span>
-                  <span class="line">просмотров на видео</span>
-                  <span class="line">себе и клиентам</span>
-                </p>
-              </li>
-
-              <li class="about__item reveal" style="--d: 260ms">
                 <span class="about__icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24" fill="none">
                     <rect x="2.4" y="6" width="19.2" height="12" rx="3.2" stroke="currentColor" stroke-width="1.6" />
@@ -1241,7 +1250,7 @@
                 </p>
               </li>
 
-              <li class="about__item reveal" style="--d: 340ms">
+              <li class="about__item reveal" style="--d: 260ms">
                 <span class="about__icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24" fill="none">
                     <rect x="3.2" y="8.2" width="17.6" height="11.6" rx="2.1" stroke="currentColor" stroke-width="1.6" />
@@ -1251,22 +1260,23 @@
                   </svg>
                 </span>
                 <p class="about__text">
-                  <span class="line">Имеет своё <span class="about__unit">видеоагентство</span></span>
-                  <span class="line">по продвижению бизнесов</span>
+                  <span class="line">Своё <span class="about__unit">видеоагентство</span>:</span>
+                  <span class="line">контент для бизнеса</span>
                   <span class="line">и предпринимателей</span>
                 </p>
               </li>
 
-              <li class="about__item reveal" style="--d: 420ms">
+              <li class="about__item reveal" style="--d: 340ms">
                 <span class="about__icon" aria-hidden="true">
-                  <svg class="about__icon-dollar" viewBox="0 0 24 24" fill="none">
-                    <path d="M12 3.4v17.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
-                    <path d="M16.2 7.6c-.7-1.6-2.3-2.5-4.3-2.5-2.5 0-4.3 1.4-4.3 3.2 0 4.3 8.6 1.8 8.6 6.1 0 1.9-1.8 3.4-4.5 3.4-2.3 0-3.9-.9-4.7-2.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M12 5.2c4.7 0 8.4 3.4 9.7 6.8-1.3 3.4-5 6.8-9.7 6.8S3.6 15.4 2.3 12C3.6 8.6 7.3 5.2 12 5.2Z" stroke="currentColor" stroke-width="1.6" />
+                    <circle cx="12" cy="12" r="3.1" fill="currentColor" />
                   </svg>
                 </span>
                 <p class="about__text">
-                  <span class="line">Ежемесячно зарабатывает</span>
-                  <span class="line"><span class="count" data-count="10000" data-format="dot" data-suffix="$+">0</span> на этом навыке</span>
+                  <span class="line"><span class="about__unit">1 млн</span> просмотров</span>
+                  <span class="line">на роликах для себя</span>
+                  <span class="line">и клиентов</span>
                 </p>
               </li>
             </ul>
@@ -1294,9 +1304,9 @@
                   <img class="lesson__art lesson__art--nout" src="../assets/img/landing/art-nout.png" alt="" width="1178" height="1236" loading="lazy" />
                 </div>
                 <h3 class="lesson__heading">
-                  <span>С чего начинал я,</span>
-                  <span>и что принесло первый</span>
-                  <span>результат?</span>
+                  <span>С чего я начинал</span>
+                  <span>и что принесло</span>
+                  <span>первый результат</span>
                 </h3>
               </article>
             </li>
@@ -1307,8 +1317,9 @@
                   <img class="lesson__art lesson__art--capcut" src="../assets/img/landing/art-cup-cut.png" alt="" width="1254" height="1254" loading="lazy" />
                 </div>
                 <h3 class="lesson__heading">
-                  <span>Как начать с нуля,</span>
-                  <span>без опыта и портфолио?</span>
+                  <span>Монтаж, сценарии, ИИ, упаковка:</span>
+                  <span>что нужно уметь,</span>
+                  <span>чтобы работать удалённо</span>
                 </h3>
               </article>
             </li>
@@ -1319,9 +1330,8 @@
                   <img class="lesson__art lesson__art--skills" src="../assets/img/landing/art-skills.png" alt="" width="1536" height="1024" loading="lazy" />
                 </div>
                 <h3 class="lesson__heading">
-                  <span>Какие навыки больше всего</span>
-                  <span>ценятся на рынке</span>
-                  <span>прямо сейчас?</span>
+                  <span>Как начать без опыта</span>
+                  <span>и портфолио</span>
                 </h3>
               </article>
             </li>
@@ -1332,9 +1342,9 @@
                   <img class="lesson__art lesson__art--money" src="../assets/img/landing/art-money-2.png" alt="" width="1477" height="1065" loading="lazy" />
                 </div>
                 <h3 class="lesson__heading">
-                  <span>Как найти первого клиента</span>
-                  <span>и выйти на доход</span>
-                  <span>без потерь времени?</span>
+                  <span>Где искать первых клиентов</span>
+                  <span>и как вести несколько</span>
+                  <span>проектов сразу</span>
                 </h3>
               </article>
             </li>
@@ -1380,7 +1390,7 @@
     <div class="modal" role="dialog" aria-modal="true" aria-labelledby="lead-modal-title" tabindex="-1">
       <button class="modal-close" type="button" data-lead-close aria-label="Закрыть">×</button>
       <h2 class="modal-title" id="lead-modal-title">Забрать видеоурок</h2>
-      <p class="lead-modal__lead">Оставь имя и почту — и сразу перейдёшь в Telegram за уроком.</p>
+      <p class="lead-modal__lead">Оставь имя — и сразу получишь урок в Telegram</p>
       <form class="lead-form" id="lead-form" novalidate>
         <div class="field">
           <label for="lead-name">Имя</label>
@@ -1399,20 +1409,20 @@
           <p class="field-error" id="lead-name-error" role="alert" hidden></p>
         </div>
         <div class="field">
-          <label for="lead-email">Почта</label>
+          <label for="lead-contact">Telegram или телефон</label>
           <input
-            id="lead-email"
-            name="email"
-            type="email"
-            inputmode="email"
-            autocomplete="email"
+            id="lead-contact"
+            name="phone"
+            type="text"
+            inputmode="text"
+            autocomplete="tel"
             spellcheck="false"
-            placeholder="name@mail.com"
+            placeholder="@username или +7…"
             maxlength="120"
-            aria-describedby="lead-email-error"
+            aria-describedby="lead-contact-error"
             required
           />
-          <p class="field-error" id="lead-email-error" role="alert" hidden></p>
+          <p class="field-error" id="lead-contact-error" role="alert" hidden></p>
         </div>
         <button class="btn" type="submit" id="lead-submit">
           Получить урок
@@ -1709,7 +1719,7 @@
       const leadForm = document.getElementById("lead-form");
       if (leadRoot && leadForm) {
         const nameInput = document.getElementById("lead-name");
-        const emailInput = document.getElementById("lead-email");
+        const contactInput = document.getElementById("lead-contact");
         const submitBtn = document.getElementById("lead-submit");
         const hintEl = document.getElementById("lead-hint");
         const NAME_ALLOWED = /^[A-Za-zА-Яа-яЁёІіЇїЄєҒғҚқҮүҰұҢңӨөҺһʼ'’.\-\s]+$/;
@@ -1729,13 +1739,68 @@
           return "";
         }
 
-        function emailError(value) {
-          const email = value.trim();
-          if (!email) return "Укажи почту";
-          if (email.length > 120 || !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
-            return "Почта должна быть вида name@mail.com";
+        function phoneDigits(value) {
+          let digits = value.replace(/\D/g, "");
+          if (digits.length === 10 && digits.startsWith("9")) digits = "7" + digits;
+          if (digits.length === 11 && digits.startsWith("8")) digits = "7" + digits.slice(1);
+          return digits;
+        }
+
+        function formatPhone(digits) {
+          if (digits.length === 11 && digits.startsWith("7")) {
+            return `+7 ${digits.slice(1, 4)} ${digits.slice(4, 7)}-${digits.slice(7, 9)}-${digits.slice(9)}`;
+          }
+          if (digits.length === 12 && digits.startsWith("375")) {
+            return `+375 ${digits.slice(3, 5)} ${digits.slice(5, 8)}-${digits.slice(8, 10)}-${digits.slice(10)}`;
+          }
+          return `+${digits}`;
+        }
+
+        function phoneError(value) {
+          const raw = value.trim();
+          if (!raw) return "Укажи номер телефона";
+          const digits = phoneDigits(raw);
+          if (digits.length < 8 || digits.length > 15 || digits.startsWith("0")) {
+            return "Введи номер с кодом страны, например +7 999 123-45-67";
           }
           return "";
+        }
+
+        function telegramHandle(value) {
+          let handle = value.trim();
+          if (!handle) return "";
+          handle = handle.replace(/^https?:\/\/(t\.me|telegram\.me)\//i, "");
+          handle = handle.replace(/^t\.me\//i, "");
+          return handle.replace(/^@/, "");
+        }
+
+        function telegramError(value) {
+          const handle = telegramHandle(value);
+          if (!handle) return "Укажи ник в Telegram";
+          if (!/^[A-Za-z][A-Za-z0-9_]{4,31}$/.test(handle)) {
+            return "Ник должен быть вида @username";
+          }
+          return "";
+        }
+
+        function contactError(value) {
+          const raw = value.trim();
+          if (!raw) return "Укажи Telegram или телефон";
+          if (!phoneError(raw)) return "";
+          if (!telegramError(raw)) return "";
+          if (/[@]|t\.me|telegram/i.test(raw) || /^[A-Za-z_]/.test(raw.replace(/^@/, ""))) {
+            return telegramError(raw);
+          }
+          if (/\d/.test(raw)) return phoneError(raw);
+          return "Укажи Telegram (@username) или телефон с кодом страны";
+        }
+
+        function normalizeContact(value) {
+          const raw = value.trim();
+          if (!phoneError(raw)) return formatPhone(phoneDigits(raw));
+          const handle = telegramHandle(raw);
+          if (handle && !telegramError(raw)) return "@" + handle;
+          return raw;
         }
 
         function setFieldError(input, message) {
@@ -1749,7 +1814,7 @@
         }
 
         function validateField(input) {
-          const message = input === nameInput ? nameError(input.value) : emailError(input.value);
+          const message = input === nameInput ? nameError(input.value) : contactError(input.value);
           setFieldError(input, message);
           return !message;
         }
@@ -1801,8 +1866,13 @@
           closeLeadModal();
         });
 
-        [nameInput, emailInput].forEach((input) => {
-          input.addEventListener("blur", () => validateField(input));
+        [nameInput, contactInput].forEach((input) => {
+          input.addEventListener("blur", () => {
+            if (input === contactInput && !contactError(input.value)) {
+              input.value = normalizeContact(input.value);
+            }
+            validateField(input);
+          });
           input.addEventListener("input", () => {
             if (input.closest(".field").classList.contains("is-invalid")) validateField(input);
           });
@@ -1813,14 +1883,14 @@
           if (submitting) return;
 
           const nameOk = validateField(nameInput);
-          const emailOk = validateField(emailInput);
-          if (!nameOk || !emailOk) {
-            (!nameOk ? nameInput : emailInput).focus();
+          const contactOk = validateField(contactInput);
+          if (!nameOk || !contactOk) {
+            (!nameOk ? nameInput : contactInput).focus();
             return;
           }
 
-          const email = emailInput.value.trim();
-          emailInput.value = email;
+          const contact = normalizeContact(contactInput.value);
+          contactInput.value = contact;
           submitting = true;
           submitBtn.disabled = true;
           setHint("Отправляю…", false);
@@ -1831,7 +1901,7 @@
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify({
                 name: compactSpaces(nameInput.value),
-                email,
+                phone: contact,
                 vid: typeof window.vmVid === "function" ? window.vmVid() : null,
                 variant: typeof window.vmGetAbVariant === "function" ? window.vmGetAbVariant() : (window.vmAbVariant || null),
                 utm: typeof window.vmUtms === "function" ? window.vmUtms() : {},
